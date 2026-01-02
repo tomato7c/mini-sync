@@ -63,8 +63,8 @@ export async function POST(request: NextRequest) {
     // Insert record into D1 using HTTP API
     const result = await executeD1Query(
       config,
-      "INSERT INTO linsv_picture (uid, name, desc, link, order_id, create_time) VALUES (?, ?, ?, ?, ?, datetime('now'))",
-      [body.uid, body.name, body.desc || "", body.link, body.orderId]
+      "INSERT INTO linsv_picture (uid, desc, link, order_id, create_time) VALUES (?, ?, ?, ?, datetime('now'))",
+      [body.uid, body.desc || "", body.link, body.orderId]
     );
 
     return NextResponse.json({
